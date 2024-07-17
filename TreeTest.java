@@ -6,10 +6,16 @@ public class TreeTest{
       ArrayList<String> children = new ArrayList<String>();
       children.add("6");
       children.add("7");
+      children.add("8");
+      
       Tree tree = new Tree();
       System.out.println(tree.getTreeHeight());
+      
       tree.constructPerfectTree(3, children);
       System.out.println(tree.getTreeHeight());
+      
+      System.out.println("Lineages");
+      System.out.println(tree.getLineages());
    }
 
 }

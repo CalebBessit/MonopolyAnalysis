@@ -8,6 +8,7 @@ public class Tree
 {
 
    TreeNode root;
+   ArrayList<String> lineages;
    
   
    /**
@@ -76,6 +77,7 @@ public class Tree
       @parameter children An ArrayList of strings containing the data that each child should have.
    **/  
    public void constructPerfectTree(int height, ArrayList<String> children){
+      this.lineages = new ArrayList<String>();
       constructPerfectTree(height, children, this.root);
    }
 
@@ -91,6 +93,7 @@ public class Tree
       
       //If the node we are at is of the required height, return.
       if (node.getHeight()==height){
+         this.lineages.add(node.getLineage());
          return;
       }
       else{
@@ -109,6 +112,16 @@ public class Tree
          
       }
       
+   }
+   
+   /**
+      Method that returns an ArrayList of all the lineages of the child nodes.
+      This represents all paths that can be taken from the root to each leaf.
+      
+      @returns ArrayList<String> An ArrayList of all the node lineages.
+   **/
+   public ArrayList<String> getLineages(){
+      return this.lineages;
    }
 
 
